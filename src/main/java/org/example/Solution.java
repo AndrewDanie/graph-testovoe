@@ -90,10 +90,12 @@ public class Solution {
     /**
      * Загрузка данных в память и валидация
      */
-    public void loadData(String filePath)  throws IOException {
-
-        filePath = new File("").getAbsolutePath().concat("/").concat(filePath);
-        try (var fReader = new FileReader(filePath);
+    public void loadData(String filePathStr)  throws IOException {
+        var filePath = new File(filePathStr);
+        if (!filePath.isAbsolute()) {
+            filePathStr = new File("").getAbsolutePath().concat("/").concat(filePathStr);
+        }
+        try (var fReader = new FileReader(filePathStr);
              var bfReader = new BufferedReader(fReader)) {
 
             var hashDict = new HashMap<Integer, Integer>();
@@ -126,6 +128,7 @@ public class Solution {
      * Запись результата в файл
      */
     public void saveResult(String filePath) throws IOException {
+
 
         try (var fWriter = new FileWriter(filePath);
              var bfWriter = new BufferedWriter(fWriter)) {
