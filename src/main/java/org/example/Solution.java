@@ -80,11 +80,7 @@ public class Solution {
                 .sorted((arr1, arr2) -> arr2.size() - arr1.size())
                 .toList();
 
-        var counter = 0;
-        for (var integers : resultList) {
-            if (integers.size() > 1) counter++;
-        }
-        System.out.println("Количество групп с более чем одним элементом: " + counter);
+
     }
 
     /**
@@ -129,9 +125,16 @@ public class Solution {
      */
     public void saveResult(String filePath) throws IOException {
 
-
         try (var fWriter = new FileWriter(filePath);
              var bfWriter = new BufferedWriter(fWriter)) {
+
+            var counter = 0;
+            for (var integers : resultList) {
+                if (integers.size() > 1) counter++;
+            }
+            System.out.println("Количество групп с более чем одним элементом: " + counter);
+            bfWriter.write(Integer.toString(counter));
+            bfWriter.newLine();
 
             for (int i = 0; i < resultList.size(); i++) {
 

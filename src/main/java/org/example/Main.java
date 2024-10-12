@@ -15,7 +15,7 @@ public class Main {
         var solution = new Solution();
         solution.loadData(args[0]);
         solution.solve();
-        solution.saveResult("output.txt");
+        solution.saveResult("output.txt ");
         System.out.println("Время выполнения программы (мс): " + (float)(System.nanoTime() - startTime)/1000000);
     }
 }
