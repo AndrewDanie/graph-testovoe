@@ -8,7 +8,7 @@ public class Main {
         var startTime = System.nanoTime();
 
         if (args.length == 0) {
-            System.out.println("Не введен относительный путь к файлу");
+            System.out.println("Не введен путь к файлу");
             return;
         }
 
